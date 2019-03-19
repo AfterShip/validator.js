@@ -1906,7 +1906,7 @@ function normalizeEmail(email, options) {
   return parts.join('@');
 }
 
-var version = '100.0.0';
+var version = '100.0.1';
 var validator = {
   version: version,
   toDate: toDate,
