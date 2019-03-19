@@ -2,7 +2,7 @@
 This is a project forked from [validator.js](https://github.com/chriso/validator.js)
 
 ## Installation
-`npm install aftership-validator-js`
+`npm install @aftership/validator`
 
 ## New features
 1. For function **isEmail**, we use rules below to validate display name (refer to the [RFC2822](https://tools.ietf.org/html/rfc2822#appendix-A.1.2)):
