@@ -56,16 +56,23 @@ function validateDisplayName(display_name) {
   return true;
 }
 
+
 export default function isEmail(str, options) {
   assertString(str);
   options = merge(options, default_email_options);
 
   if (options.require_display_name || options.allow_display_name) {
     const display_email = str.match(splitNameAddress);
-
     if (display_email) {
       let display_name;
       [, display_name, str] = display_email;
+      // sometimes need to trim the last space to get the display name
+      // because there may be a space between display name and email address
+      // eg. myname <address@gmail.com>
+      // the display name is `myname` instead of `myname `, so need to trim the last space
+      if (display_name.endsWith(' ')) {
+        display_name = display_name.substr(0, display_name.length - 1);
+      }
 
       if (!validateDisplayName(display_name)) {
         return false;
@@ -108,7 +115,7 @@ export default function isEmail(str, options) {
   }
 
   if (!isByteLength(user, { max: 64 }) ||
-    !isByteLength(domain, { max: 254 })) {
+            !isByteLength(domain, { max: 254 })) {
     return false;
   }
 

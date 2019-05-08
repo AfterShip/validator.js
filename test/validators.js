@@ -180,10 +180,10 @@ describe('Validators', () => {
         'Some Name <foo@gmail.com>',
         'Name🍓With🍑Emoji🚴‍♀️🏆<test@aftership.com>',
         '🍇🍗🍑<only_emoji@aftership.com>',
-        '🍇🍗🇧🇯 <emoji_with_space@aftership.com>',
         '"<displayNameInBrackets>"<jh@gmail.com>',
         '"\\"quotes\\""<jh@gmail.com>',
         '"name;"<jh@gmail.com>',
+        '"name;" <jh@gmail.com>',
       ],
       invalid: [
         'invalidemail@',
